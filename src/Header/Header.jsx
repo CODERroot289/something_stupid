@@ -3,7 +3,24 @@ import Menu from '../Menu/Menu.jsx'
 import { useEffect,useState } from 'react';
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 function Header() {
+
+	function LogoutButton() {
+	  const handleLogout = () => {
+	    const auth = getAuth();
+	    signOut(auth)
+	      .then(() => {
+	        console.log("Signed out!");
+	        // navigate to login page
+	      })
+	      .catch((error) => {
+	        console.error("Error:", error);
+	      });
+	  };
+
+	  return <button onClick={handleLogout}>Log Out</button>;
+	}
 	const [user, setUser] = useState(null);
 	let mencon = false
   	useEffect(() => {
@@ -85,7 +102,7 @@ function Header() {
 					{/*<a href="#"><li>About</li></a>*/}
 				</ul>
 				<div className='slin'>
-				{user ? (<p>USER</p>):(
+				{user ? (LogoutButton()):(
 					<>
 					<a href='/register'className='sline'>
 						<button>Sign in</button>

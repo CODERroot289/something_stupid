@@ -35,6 +35,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     if (activePage === "cart"){
       let cart =(
       <>
+      <h1>Cart</h1>
        
       </>)
         
@@ -46,7 +47,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     if (activePage === "user"){
       let User =(
       <>
-        
+        <h1>User</h1>
       </>)
       return User
     } 

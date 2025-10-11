@@ -13,8 +13,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 
     <div className="home">
       <section className="hero">
-        <h1>Welcome</h1>
-        <p>GIVE UPON YOUR DREAMS AND DIE</p>
+        {/*<h1>Welcome</h1>*/}
+        <p>No Products Available</p>
       </section>
 
       <section className="projects">
@@ -66,11 +66,14 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 
       </section>*/}
 
-      <section className="about">
+      <section className="about" style={{height: "40vh"}}>
         <h2>About US</h2>
-        <p>IDKNOTME</p>
-        <p>IDKABOUTME</p>
-        <p>IDKABOUTUS</p>
+        <ul>
+          
+        <li className="about li">IDKNOTME</li>
+        <li className="about li">IDKABOUTME</li>
+        <li className="about li">IDKABOUTUS</li>
+        </ul>
       </section>
     </div>
 

@@ -17,6 +17,16 @@
     background-repeat: no-repeat;
     z-index: -1
 }
+.about{
+  list-style: none;
+  /*height: 20vh;*/
+}
+.about .li {
+    font-size: 2rem;
+    display: flex
+
+
+}
 .home section {
   padding: 1rem 2rem;
   height: 100vh;

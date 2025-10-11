@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "something_stupid",
+  // base: "something_stupid",
   plugins: [
     react(),
     // tailwindcss(),

@@ -34,18 +34,18 @@ function Header() {
 	    		}
 
 		    } else {
-		      setUser(null); // User is logged out
+		      setUser(null); 
 		    }
 		  });
 
-		  // Cleanup subscription on unmount
+		  
 		  return () => unsubscribe();
 	}, []);
 	useEffect(() => {
 	    const handleClick = (event) => {
 	      if ( event.target.id !== "Menu" && event.target.className != "menu-btn"){
 	      	hidemenu()
-	      	// console.log(event.target.className)
+	      	
 	      };
 	    };
 	    document.addEventListener('click', handleClick);
@@ -92,10 +92,10 @@ function Header() {
 						<a href="/dashboard"><li>Dashboard</li></a>
 						</>
 					):(<></>)  }
-					{/*<vr></vr>*/}
-					{/*<a href="#"><li>Source Codes</li></a>*/}
-					{/*<vr></vr>*/}
-					{/*<a href="#"><li>Study Materials</li></a>*/}
+					<vr></vr>
+					<a href="#"><li>seller</li></a>
+					<vr></vr>
+					<a href="#"><li>buyer</li></a>
 					{/*<vr></vr>*/}
 					{/*<a href="#"><li>Downloads</li></a>*/}
 					{/*<vr></vr>*/}

@@ -1,0 +1,69 @@
+.mcode {
+  font-family: monospace;
+  background-color: rgba(255, 255, 255, 0.81);
+  color: black;
+  padding: 16px;
+  white-space: pre;
+}
+.bgi {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+        /*background-image: url(/hhomes1.png);*/
+    /*background: gr;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1
+}
+.home section {
+  padding: 1rem 2rem;
+  height: 100vh;
+/*  width: 100vw;*/
+
+  border-bottom: 10px solid #ccc;
+  font-size: 2rem;
+}
+
+.hero {
+/*  background: #111;*/
+  color: #fff;
+/*  color: black;*/
+
+    text-align: center;
+
+    height: 100vh;
+
+}
+.resources div{
+  font-size: 1rem;
+  height: -webkit-fill-available;
+
+}
+.projects, .about {
+  background: #f9f9f9d9;
+  font-size: 1rem;
+  text-align: center ;
+  color: black;
+}
+@media (max-width: 768px) {
+.resources div{
+  font-size: .5rem;
+
+}
+.home section {
+  height: 50vh;
+}
+.bgi{
+  /*background-image: url(/vhomes1.png);*/
+  margin: 0;
+  padding: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+}

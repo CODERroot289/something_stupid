@@ -1,0 +1,33 @@
+
+.aForm{
+  width: 80%;
+  height: 25px;
+}
+#card form{
+      width: 100%;
+  display: inline-grid;
+    justify-items: center;
+}
+
+#card {
+  background-color: #000000;
+  border: 5px solid darkorange;
+  border-radius: 2%;
+  width: 28rem;
+  height: 25rem;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /*align-content: space-between;*/
+
+
+}
+#content{
+  height: 80vh;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

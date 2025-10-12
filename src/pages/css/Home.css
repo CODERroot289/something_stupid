@@ -73,6 +73,21 @@ ease;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+
+.view-button{
+  background-color: red;
+  color :white;
+  border: 5px solid red;
+  border-radius: 5px;
+  margin-left:5px ;
+}
+
+.view-button:hover{
+  background-color: orange;
+  color :white;
+  border: 5px solid orange;
+
+}
 #categories {
   display: flex;
   background-color: grey;

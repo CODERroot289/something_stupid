@@ -166,11 +166,11 @@ function Sale() {
         >
           <option value="">Select a category</option>
           <option value="electronics">Electronics</option>
-          <option value="furniture">Furniture</option>
+          <option value="vegetable">Vegetable</option>
           <option value="vehicles">Vehicles</option>
           <option value="fashion">Fashion</option>
           <option value="meat">Meat</option>
-          <option value="real-estate">Real Estate</option>
+          <option value="drinks">Drinks</option>
           <option value="others">Others</option>
         </select>
 

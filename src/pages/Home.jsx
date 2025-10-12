@@ -43,8 +43,10 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
           <h1>
             ₹{ x.price}
           </h1>
-          
+
             <button class="view-button">view</button>
+            <button class="view-button">cart</button>
+
           
         </div>
       </div>

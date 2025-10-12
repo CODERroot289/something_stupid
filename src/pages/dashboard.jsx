@@ -117,7 +117,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
   const menuItems = [
     { name: "Home", icon: "fa-solid fa-home", path: "home" },
     { name: "My Account", icon: "fa-solid fa-user", path: "user" },
-    { name: "Your orders", icon: "fa-solid fa-cart-shopping", path: "cart" },
+    { name: "Cart", icon: "fa-solid fa-cart-shopping", path: "cart" },
     { name: "sell", icon: "fa-solid fa-store", path: "shop" },
     { name: "My Ads ⁽ᶠᵒʳ ᵐᵉᵐᵇᵉʳ⁾", icon: "fa-solid fa-store", path: "shop" },
     // { name: "", icon: "fa-solid fa-store", path: "shop" },

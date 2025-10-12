@@ -13,7 +13,8 @@ import Sale from "./sale.jsx"
 
 import "./css/dashboard.css"
 // import "./css/Home.css"
-
+// import { onAuthStateChanged } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { Link } from "react-router-dom";
@@ -95,7 +96,21 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
       return User
     } 
   };
+    function LogoutButton() {
+    const handleLogout = () => {
+      const auth = getAuth();
+      signOut(auth)
+        .then(() => {
+          console.log("Signed out!");
+          // navigate to login page
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    };
 
+    return <button onClick={handleLogout}>Log Out</button>;
+  }
 
   const menuItems = [
     { name: "Home", icon: "fa-solid fa-home", path: "home" },
@@ -136,6 +151,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
             </li>
           ))}
         </ul>
+        {LogoutButton()}
       </div>
 
       

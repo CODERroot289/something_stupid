@@ -82,8 +82,8 @@ function Header() {
 			if(window.innerWidth <= 768){
 				
 		let menu = document.getElementById("sidebar")
-			}
 		menu.style.display = "none"
+			}
 		// console.log("ehe")
 	}
 	

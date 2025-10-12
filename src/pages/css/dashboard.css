@@ -105,7 +105,7 @@
   background-image: url("../../../public/iphoneAD.jpeg");
   background-size: contain;
 
-  animation: ads 12s infinite;
+  animation:  ads 12s infinite;
 }
 
 /* Keyframes for changing background images */
@@ -119,11 +119,11 @@
   50% {
     background-image: url('../../../public/3.jpeg');
   }
-  /*75% {
+  75% {
     background-image: url('../../../public/4.jpeg');
-  }*/
+  }
   100% {
-    background-image: url('../../../public/4.jpeg');
+    background-image: url('../../../public/3.jpeg');
   }
 }
 @media (max-width: 768px) {

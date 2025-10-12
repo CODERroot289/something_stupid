@@ -41,7 +41,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     : x.description}<br></br>
           </p>
           <h1>
-           { x.price}₹
+            ₹{ x.price}
           </h1>
           
             <button class="view-button">view</button>

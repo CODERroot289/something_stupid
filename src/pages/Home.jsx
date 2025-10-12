@@ -59,14 +59,23 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     <div style={{display: "grid"}}>
       <ul id="categories">
         <Link  className="menu-link">
-
         <li >electronic</li>
+        </Link>
+        <Link  className="menu-link">
         <li >meat</li>
+        </Link>
+                <Link  className="menu-link">
         <li >fish</li>
+        </Link>
+                <Link  className="menu-link">
         <li >vegetables</li>
+        </Link>
+                <Link  className="menu-link">
         <li >food</li>
+        </Link>        <Link  className="menu-link">
         <li >cars</li>
-</Link>
+        </Link>
+
       </ul>
       <div id="ads" ></div>
       <div id="card-container">

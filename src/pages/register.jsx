@@ -6,7 +6,7 @@ import { auth, googleProvider } from "../firebase";
 import { signInWithPopup,createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 
-
+import { useNavigate } from "react-router-dom";
 
 const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', getSystemTheme());
@@ -16,6 +16,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   // Google sign up
   const handleGoogleSignup = async () => {
@@ -23,7 +24,8 @@ export default function Register() {
       setLoading(true);
       await signInWithPopup(auth, googleProvider);
       // alert("Account created with Google!");
-      window.location.href = "/dashboard"
+      // window.location.href = "/dashboard"
+      navigate("/dashboard")
     } catch (error) {
       // alert(error.message);
     } finally {
@@ -44,7 +46,8 @@ export default function Register() {
       setLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
       alert("Account created successfully!");
-      window.location.href = "/dashboard"
+      // window.location.href = "/dashboard"
+      navigate("/dashboard")
     } catch (error) {
       alert(error.message);
     } finally {

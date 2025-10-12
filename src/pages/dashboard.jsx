@@ -17,7 +17,8 @@ import "./css/dashboard.css"
 import { getAuth, signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { FaHome, FaUser, FaSignOutAlt, FaBars } from "react-icons/fa";
 import { useState,useEffect} from "react";
 export default function Dashboard() {
@@ -31,7 +32,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
   const [activePage, setActivePage] = useState("home");
   const [user, setUser] = useState(null);
   // const loadacc = async ()=>{
-
+  const navigate = useNavigate();
   useEffect(() => {
         console.log("fdzd")
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -46,7 +47,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
           } else {
             setUser(null); // User is logged out
             if (!user){
-              window.location.href = "/login"
+              // window.location.href = "/login"
+              navigate("/login")
             }
 
           }

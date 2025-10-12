@@ -117,14 +117,17 @@
   25% {
     background-image: url('../../../public/2.jpeg');
   }
-  50% {
+  45% {
     background-image: url('../../../public/3.jpeg');
   }
-  75% {
+  65% {
     background-image: url('../../../public/4.jpeg');
   }
+  80% {
+    background-image: url('../../../public/5.jpeg');
+  }
   100% {
-    background-image: url('../../../public/3.jpeg');
+    background-image: url('../../../public/6.jpeg');
   }
    0% { background-position: 0 0; }
   100% { background-position: -1000px 0; }

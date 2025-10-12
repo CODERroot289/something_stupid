@@ -5,12 +5,12 @@ import { useState } from "react";
 import { auth, googleProvider } from "../firebase";
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc"; // for Google icon
-
+import { useNavigate } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
+const navigate = useNavigate();
   const handleGoogleLogin = async () => {
     try {
       setLoading(true);
@@ -18,8 +18,8 @@ export default function Login() {
 
       // alert("Logged in with Google!");
       // Redirect to another page
-      window.location.href = "/dashboard"; // or any URL
-
+      // window.location.href = "/dashboard"; // or any URL
+    navigate("/dashboard")
     } catch (error) {
       // alert(error.message);
     } finally {
@@ -33,7 +33,8 @@ export default function Login() {
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
       // alert("Logged in successfully!");
-      window.location.href = "/dashboard"
+      // window.location.href = "/dashboard"
+      navigate("/dashboard")
     } catch (error) {
       // alert(error.message);
     } finally {

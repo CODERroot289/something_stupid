@@ -70,15 +70,16 @@ function Header() {
 	
 	function showmenu(){
 		let header = document.getElementsByClassName("Header")[0]
-		let menu = document.getElementById("Menu")
-		menu.style.display = "flex"
+		// let menu = document.getElementById("Menu")
+		let menu = document.getElementById("sidebar")
+		menu.style.display = "contents"
 		mencon = true
 		// header.style.display = "none"
 		// console.log("ehe")
 	}	
 	function hidemenu(){
 		if (mencon) console.log(mencon)
-		let menu = document.getElementById("Menu")
+		let menu = document.getElementById("sidebar")
 		menu.style.display = "none"
 		// console.log("ehe")
 	}

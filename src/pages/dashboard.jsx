@@ -119,7 +119,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 
 
 
-      <div className={open ? "sidebar open" : "sidebar"}>
+      <div id="sidebar"className={open ? "sidebar open" : "sidebar"}>
         <div className="sidebar-header">
           {open && <span className="logo">Menu</span>}
           <button className="toggle-btn" onClick={() => setOpen(!open)}>

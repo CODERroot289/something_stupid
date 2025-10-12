@@ -107,6 +107,18 @@
 @media (max-width: 768px) {
   .sidebar{
     display: none;
-    
+    width:50vw;
+    position: absolute;
+    top: 0;
   }
+  .sidebar.open {
+  width: 15vw;
+  width:50vw;
+    position: relative;
+  top:0;
+  bottom:0;
+}  .sidebar-header {
+    display: none ;
+  }
+
 }

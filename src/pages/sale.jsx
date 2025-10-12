@@ -58,6 +58,7 @@ function Sale() {
       form.append("images", fileInputRef.current.files[i]);
     }
 
+    // const res = await fetch("http://localhost:5000/upload", {
     const res = await fetch("https://productdb.up.railway.app/upload", {
       method: "POST",
       body: form,
@@ -168,6 +169,7 @@ function Sale() {
           <option value="furniture">Furniture</option>
           <option value="vehicles">Vehicles</option>
           <option value="fashion">Fashion</option>
+          <option value="meat">Meat</option>
           <option value="real-estate">Real Estate</option>
           <option value="others">Others</option>
         </select>

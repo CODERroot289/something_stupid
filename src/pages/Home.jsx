@@ -39,6 +39,9 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     ? x.description.slice(0, 50) + "..."
     : x.description}<br></br>
           </p>
+          <p>
+            x.Price
+          </p>
           
             <button class="view-button">view</button>
           

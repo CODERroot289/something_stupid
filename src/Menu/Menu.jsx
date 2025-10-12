@@ -66,6 +66,7 @@ function Menu() {
 						<>
 						
 						<a href="/dashboard"><button className='sline'>Dashboard</button></a>
+						<a href="/dashboard"><button className='sline'>Dashboard</button></a>
 						</>
 					):(<></>)  }
 					

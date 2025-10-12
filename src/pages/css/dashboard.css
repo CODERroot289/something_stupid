@@ -97,18 +97,19 @@
   color: black;
 }
 #ads {
-  background-color: grey;
+  /*background-color: grey;*/
   height: 20vh;
   margin: 10px;
   border: 0px solid grey;
   border-radius: 15px;
   background-image: url("../../../public/iphoneAD.jpeg");
   background-size: contain;
+  /*background: no-repeat;*/
 
-  animation:  ads 12s infinite;
+  animation:  ads 12s infinite alternate ;
 }
 
-/* Keyframes for changing background images */
+
 @keyframes ads {
   0% {
     background-image: url('../../../public/1.jpeg');
@@ -125,6 +126,8 @@
   100% {
     background-image: url('../../../public/3.jpeg');
   }
+   0% { background-position: 0 0; }
+  100% { background-position: -1000px 0; }
 }
 @media (max-width: 768px) {
   .sidebar{

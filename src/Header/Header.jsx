@@ -79,7 +79,10 @@ function Header() {
 	}	
 	function hidemenu(){
 		if (mencon) console.log(mencon)
+			if(window.innerWidth <= 768){
+				
 		let menu = document.getElementById("sidebar")
+			}
 		menu.style.display = "none"
 		// console.log("ehe")
 	}

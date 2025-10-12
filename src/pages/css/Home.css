@@ -17,6 +17,21 @@
     background-repeat: no-repeat;
     z-index: -1
 }*/
+
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.menu-link:hover {
+  background-color: #2a2a40;
+}
+
 #card-container{
 display: flex
 ;

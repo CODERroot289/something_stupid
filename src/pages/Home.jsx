@@ -4,7 +4,7 @@ import Footer from "../Footer/footer.jsx"
 import "./css/Home.css"
 // import MyShop from "../pages/dashboard/dashboard-MyShop.jsx"
 
-
+import { Link } from "react-router-dom";
 import { useState ,useEffect} from "react";
 export default function Home() {
 const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -39,9 +39,9 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     ? x.description.slice(0, 50) + "..."
     : x.description}<br></br>
           </p>
-          <p>
-            x.Price
-          </p>
+          <h1>
+           { x.price}₹
+          </h1>
           
             <button class="view-button">view</button>
           
@@ -58,12 +58,15 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     {/*<Header/>*/}
     <div style={{display: "grid"}}>
       <ul id="categories">
+        <Link  className="menu-link">
+
         <li >electronic</li>
         <li >meat</li>
         <li >fish</li>
         <li >vegetables</li>
         <li >food</li>
         <li >cars</li>
+</Link>
       </ul>
       <div id="ads" ></div>
       <div id="card-container">

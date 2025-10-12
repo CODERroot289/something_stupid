@@ -111,7 +111,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         });
     };
 
-    return <button onClick={handleLogout}>Log Out</button>;
+    return <button id="lgout" onClick={handleLogout}>Log Out</button>;
   }
 
   const menuItems = [

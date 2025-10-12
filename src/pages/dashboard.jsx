@@ -150,8 +150,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
               </Link>
             </li>
           ))}
-        </ul>
         {LogoutButton()}
+        </ul>
       </div>
 
       

@@ -72,13 +72,15 @@ ease;
   display: flex;
   background-color: grey;
   list-style: none;
-
+  overflow: scroll;
   margin: 0;
     justify-content: space-around;;
 
 }
 
-
+#categories::-webkit-scrollbar {
+  display: none;
+}
 .home section {
   padding: 1rem 2rem;
   height: 100vh;

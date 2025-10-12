@@ -35,7 +35,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         <div class="app-card">
         <img src={`https://productdb.up.railway.app/${x.images[0]}`} alt="App 1"></img>
         <div class="app-details" onclick="goappdetails('app3')">
-          <h2 class="app-title">{x.name}</h2>
+          <h2 class="app-title">{x.name.toUpperCase()}</h2>
           <p class="app-description">{x.description.length > 50
     ? x.description.slice(0, 50) + "..."
     : x.description}<br></br>
@@ -44,7 +44,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
             ₹{ x.price}
           </h1>
 
-            <button class="view-button" >view</button>
+            <button class="view-button" onClick={console.log(x.id)}>view</button>
             <button class="view-button">cart</button>
 
           

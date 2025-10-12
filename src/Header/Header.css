@@ -58,6 +58,7 @@ background-image:url("../../../public/logo.png") ;
     background-size: contain;
     background-repeat: no-repeat;
     display: flex;
+    height: 11vh;
 }
 
 

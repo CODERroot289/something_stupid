@@ -94,7 +94,7 @@ function Header() {
 		<header className='header'>
 			<button className='menu-btn' onClick={showmenu}>☰</button>
 			{/*<h1><o>I</o><o>d</o><o>K</o><o>N</o><o>o</o><o>M</o><o>e</o></h1>*/}
-			<div>
+			<div style={{width:" 18vw"}}>
 			<div id='logo'style={{
 			display: "flex",
 		    lignContent: "flex-end",
@@ -102,6 +102,7 @@ function Header() {
 		    flexWrap: "wrap",
 		    alignContent: "space-around",
 		    justifyContent: "space-around",
+		    width:"10vw"
 
 			}}></div>
 		</div>

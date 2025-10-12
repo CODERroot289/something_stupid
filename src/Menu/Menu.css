@@ -9,6 +9,7 @@
 	width: 80vw;
 	background: var(--bbg);
 	justify-content: space-around;
+	    z-index: 1;
 
 }
 #Menu .sline {

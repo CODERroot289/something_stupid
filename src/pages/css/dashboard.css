@@ -102,8 +102,30 @@
   margin: 10px;
   border: 5px solid grey;
   border-radius: 5px;
+  background-image: url("../../../public/iphoneAD.jpeg");
+  background-size: contain;
+
+  animation: ads 12s infinite;
 }
 
+/* Keyframes for changing background images */
+@keyframes ads {
+  0% {
+    background-image: url('../../../public/1.jpeg');
+  }
+  25% {
+    background-image: url('../../../public/2.jpeg');
+  }
+  50% {
+    background-image: url('../../../public/3.jpeg');
+  }
+  /*75% {
+    background-image: url('../../../public/4.jpeg');
+  }*/
+  100% {
+    background-image: url('../../../public/4.jpeg');
+  }
+}
 @media (max-width: 768px) {
   .sidebar{
     display: none;

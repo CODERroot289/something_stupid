@@ -65,7 +65,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         <li >food</li>
         <li >cars</li>
       </ul>
-      <div id="ads" style={{display:"none"}}></div>
+      <div id="ads" ></div>
       <div id="card-container">
         {products.map((item, index) => (<>
           {cards(item)}

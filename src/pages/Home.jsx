@@ -44,7 +44,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
             ₹{ x.price}
           </h1>
 
-            <button class="view-button">view</button>
+            <button class="view-button" >view</button>
             <button class="view-button">cart</button>
 
           
@@ -75,10 +75,10 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         </Link>
                 <Link  className="menu-link">
         <li >food</li>
-        </Link>        <Link  className="menu-link">
+        </Link>      {/*  <Link  className="menu-link">
         <li >cars</li>
         </Link>
-
+*/}
       </ul>
       <div id="ads" ></div>
       <div id="card-container">

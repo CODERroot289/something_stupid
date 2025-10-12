@@ -66,6 +66,7 @@
 .menu-link {
   display: flex;
   align-items: center;
+  
   padding: 12px 15px;
   color: white;
   text-decoration: none;
@@ -124,10 +125,10 @@
     background-image: url('../../../public/4.jpeg');
   }
   80% {
-    background-image: url('../../../public/5.jpeg');
+    background-image: url('../../../public/5.jpg');
   }
   100% {
-    background-image: url('../../../public/6.jpeg');
+    background-image: url('../../../public/6.jpg');
   }
    0% { background-position: 0 0; }
   100% { background-position: -1000px 0; }

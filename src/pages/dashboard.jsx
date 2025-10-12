@@ -1,7 +1,8 @@
 import Header from "../Header/Header.jsx"
 import Footer from "../Footer/footer.jsx"
+import Home from "../pages/Home.jsx"
 import shop from "../Footer/footer.jsx"
-import MyShop from "../pages/dashboard-MyShop.jsx"
+import MyShop from "../pages/dashboard/dashboard-MyShop.jsx"
 import "./css/dashboard.css"
 // import "./css/Home.css"
 
@@ -18,7 +19,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 
 
   const [open, setOpen] = useState(true);
-  const [activePage, setActivePage] = useState("shop");
+  const [activePage, setActivePage] = useState("home");
   const [user, setUser] = useState(null);
   // const loadacc = async ()=>{
 
@@ -56,6 +57,13 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         </>)
       return MyShops
     }
+    if (activePage === "home") {
+       let MyShops =(
+        <>
+        <Home/>
+        </>)
+      return MyShops
+    }
     
 
 
@@ -82,9 +90,12 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 
 
   const menuItems = [
-    { name: "Cart", icon: "fa-solid fa-cart-shopping", path: "cart" },
-    { name: "My Shops", icon: "fa-solid fa-store", path: "shop" },
-    { name: "User", icon: "fa-solid fa-user", path: "user" },
+    { name: "Home", icon: "fa-solid fa-home", path: "home" },
+    { name: "My Account", icon: "fa-solid fa-user", path: "user" },
+    { name: "Your orders", icon: "fa-solid fa-cart-shopping", path: "cart" },
+    { name: "sell", icon: "fa-solid fa-store", path: "sell" },
+    { name: "My Ads ⁽ᶠᵒʳ ᵐᵉᵐᵇᵉʳ⁾", icon: "fa-solid fa-store", path: "shop" },
+    // { name: "", icon: "fa-solid fa-store", path: "shop" },
   ];
 
 
@@ -97,9 +108,12 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     <div className="home">
       {/*<section className="projects">*/}
         <div className="container">
+
+
+
       <div className={open ? "sidebar open" : "sidebar"}>
         <div className="sidebar-header">
-          {open && <span className="logo">MyApp</span>}
+          {open && <span className="logo">Menu</span>}
           <button className="toggle-btn" onClick={() => setOpen(!open)}>
             <FaBars />
           </button>
@@ -115,6 +129,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
           ))}
         </ul>
       </div>
+
+      
       <div className="main-content">
         {renderContent()}
       </div>

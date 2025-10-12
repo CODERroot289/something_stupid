@@ -1,27 +1,63 @@
 import Header from "../Header/Header.jsx"
 import Footer from "../Footer/footer.jsx"
+// import Dmenu from "../Menu/Dmenu.jsx"
 import "./css/Home.css"
+// import MyShop from "../pages/dashboard/dashboard-MyShop.jsx"
+
+
+import { useState ,useEffect} from "react";
 export default function Home() {
 const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   // console.log(getSystemTheme())
-  document.documentElement.setAttribute('data-theme', getSystemTheme());
+ 
+    let appcard =(
+      <>
+      <div class="app-card">
+      <img src="https://mpesg-store.netlify.app/app1.png" alt="App 1"></img>
+      <div class="app-details" onclick="goappdetails('app3')">
+        <h2 class="app-title">Wither launcher</h2>
+        <p class="app-description">Cracked MINECRAFT Lancher<br></br>
+        </p>
+        
+          <button class="view-button">view</button>
+        
+      </div>
+    </div>
+    </>
+    )
 
   return(
     <>
-      <div className="bgi"></div>
-    <Header/>
-
-    <div className="home">
-      <section className="hero">
-        {/*<h1>Welcome</h1>*/}
-        <p>No Products Available</p>
-      </section>
-
-      <section className="projects">
-        <h2></h2>
-        <p>NOTHING HERE STOP SCROLLING.</p>
-      </section>
-
+      {/*<div className="bgi"></div>*/}
+    {/*<Header/>*/}
+    <div style={{display: "grid"}}>
+      <ul id="categories">
+        <li >electronic</li>
+        <li >meat</li>
+        <li >fish</li>
+        <li >vegetables</li>
+        <li >food</li>
+        <li >cars</li>
+      </ul>
+      <div id="ads"></div>
+      <div id="card-container">
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      {appcard}
+      </div>
+      {/*<Dmenu/>*/}
+      {/*<div id="card-container" style={{height:"100vh"}}>*/}
+        {/*{renderContent()}*/}
+      {/*</div>*/}
 {/*        <h2>Study Materials</h2>
         <p>Question papers</p>*/}
 {/*
@@ -65,7 +101,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 
 
       </section>*/}
-
+{/*      
       <section className="about" style={{height: "40vh"}}>
         <h2>About US</h2>
         <ul>
@@ -74,7 +110,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         <li className="about li">IDKABOUTME</li>
         <li className="about li">IDKABOUTUS</li>
         </ul>
-      </section>
+      </section>*/}
     </div>
 
 

@@ -1,4 +1,5 @@
 /* Container flex */
+
 .container {
   display: flex;
   min-height: 100vh;
@@ -8,13 +9,21 @@
 .sidebar {
   background-color: #1e1e2f;
   color: white;
-  width: 220px;
+  width: 15vw;
   transition: width 0.3s;
   overflow: hidden;
+  height: 100vh;
+  position: relative;
+  top:0;
+  bottom:0;
 }
 
 .sidebar.open {
-  width: 220px;
+  width: 15vw;
+  /*height: 10vh;*/
+    position: relative;
+  top:0;
+  bottom:0;
 }
 
 .sidebar:not(.open) {
@@ -79,8 +88,18 @@
 
 /* Main content */
 .main-content {
-  flex: 1;
-  padding: 20px;
+  flex:1 ;
+      max-height: 99vh;
+    overflow: scroll;
+
+  /*padding: 20px;*/
   background-color: #f4f4f4;
   color: black;
+}
+#ads {
+  background-color: grey;
+  height: 20vh;
+  margin: 10px;
+  border: 5px solid grey;
+  border-radius: 5px;
 }

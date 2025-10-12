@@ -50,32 +50,41 @@ function Menu() {
 	return (
 		<div id='Menu'>
 
-			<div>
-				<ul>
+			<div style={{display: "flex",
+				justifyContent: "space-around",
+				flexDirection: "column",
+				alignItems: "center",
+				height: "55vh"
 
-					<a href="/"><li>Home</li></a>
+			}}>
+					<h1>
+			<o>I</o><o>d</o><o>K</o><o>N</o><o>o</o><o>M</o><o>e</o></h1>
+			<br></br>
+
+					<a href="/"><button className='sline'>Home</button></a>
 					{user ? (
 						<>
-						<vr></vr>
-						<a href="/dashboard"><li>Dashboard</li></a>
+						
+						<a href="/dashboard"><button className='sline'>Dashboard</button></a>
 						</>
 					):(<></>)  }
-					<vr></vr>
-					<a href="#"><li>seller</li></a>
-					<vr></vr>
-					<a href="#"><li>buyer</li></a>
-					{/*<vr></vr>*/}
+					
+					<a href="#"><button className='sline'>seller</button></a>
+					
+					<a href="#"><button className='sline'>buyer</button></a>
+					{/**/}
 					{/*<a href="#"><li>Downloads</li></a>*/}
 					{/*<vr></vr>*/}
 					{/*<a href="#"><li>About</li></a>*/}
-				</ul>
+				
+			<br></br>
 				<div className='slin'>
 				{user ? (LogoutButton()):(
 					<>
-					<a href='/register'className='sline'>
+					<a href='/register'>
 						<button>Sign in</button>
 					</a>
-					<a href='/login'className='sline'>
+					<a href='/login'>
 						<button>log in</button>
 					</a>
 					</>		      

@@ -6,6 +6,15 @@ import { onAuthStateChanged } from "firebase/auth";
 import { getAuth, signOut } from "firebase/auth";
 function Header() {
 
+	// 	function SearchBarExample() {
+	// 	  const [searchTerm, setSearchTerm] = useState("");
+		  
+	// 	  const items = ["Apple", "Banana", "Orange", "Mango", "Pineapple", "Grapes"];
+
+	// 	  const filteredItems = items.filter(item =>
+	// 	    item.toLowerCase().includes(searchTerm.toLowerCase())
+	  // );
+
 	function LogoutButton() {
 	  const handleLogout = () => {
 	    const auth = getAuth();
@@ -85,21 +94,34 @@ function Header() {
 			<div>
 				<ul>
 
-					<a href="/"><li>Home</li></a>
+{/*					<a href="/"><li>Home</li></a>
 					{user ? (
 						<>
 						<vr></vr>
 						<a href="/dashboard"><li>Dashboard</li></a>
 						</>
-					):(<></>)  }
-					<vr></vr>
-					<a href="#"><li>seller</li></a>
-					<vr></vr>
-					<a href="#"><li>buyer</li></a>
+					):(<></>)  }*/}
+					{/*<vr></vr>*/}
+					{/*<a href="#"><li>seller</li></a>*/}
+					{/*<vr></vr>*/}
+					{/*<a href="#"><li>buyer</li></a>*/}
 					{/*<vr></vr>*/}
 					{/*<a href="#"><li>Downloads</li></a>*/}
 					{/*<vr></vr>*/}
 					{/*<a href="#"><li>About</li></a>*/}
+				 <input
+				        type="text"
+				        placeholder="Search..."
+				        // value={searchTerm}
+				        // onChange={(e) => setSearchTerm(e.target.value)}
+				        style={{
+				          padding: "10px",
+				          width: "100%",
+				          borderRadius: "8px",
+				          border: "1px solid #ccc",
+				          // marginBottom: "20px",
+				        }}
+				      />
 				</ul>
 				<div className='slin'>
 				{user ? (LogoutButton()):(

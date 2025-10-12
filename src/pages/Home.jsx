@@ -9,23 +9,44 @@ import { useState ,useEffect} from "react";
 export default function Home() {
 const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   // console.log(getSystemTheme())
- 
-    let appcard =(
-      <>
-      <div class="app-card">
-      <img src="https://mpesg-store.netlify.app/app1.png" alt="App 1"></img>
-      <div class="app-details" onclick="goappdetails('app3')">
-        <h2 class="app-title">Wither launcher</h2>
-        <p class="app-description">Cracked MINECRAFT Lancher<br></br>
-        </p>
-        
-          <button class="view-button">view</button>
-        
-      </div>
-    </div>
-    </>
-    )
+    // let products= {
+    //   "Name":,
+    //   "Image":,
+    //   "Desc":,
+    //   "categories":,
+    //   "Price":,
+    //   "location":
 
+    // }
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://productdb.up.railway.app/products") // server endpoint
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error(err));
+  }, []);
+    console.log(products)
+    function cards(x){
+      console.log(x)
+      let appcard =(
+        <>
+        <div class="app-card">
+        <img src={`https://productdb.up.railway.app/${x.images[0]}`} alt="App 1"></img>
+        <div class="app-details" onclick="goappdetails('app3')">
+          <h2 class="app-title">{x.name}</h2>
+          <p class="app-description">{x.description}<br></br>
+          </p>
+          
+            <button class="view-button">view</button>
+          
+        </div>
+      </div>
+      </>
+      )
+      return appcard
+
+    }
   return(
     <>
       {/*<div className="bgi"></div>*/}
@@ -41,6 +62,11 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
       </ul>
       <div id="ads"></div>
       <div id="card-container">
+        {products.map((item, index) => (<>
+          {cards(item)}
+
+        </>))}
+{/*      {appcard}
       {appcard}
       {appcard}
       {appcard}
@@ -51,8 +77,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
       {appcard}
       {appcard}
       {appcard}
-      {appcard}
-      {appcard}
+      {appcard}*/}
       </div>
       {/*<Dmenu/>*/}
       {/*<div id="card-container" style={{height:"100vh"}}>*/}

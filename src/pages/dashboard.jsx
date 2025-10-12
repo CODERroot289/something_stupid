@@ -1,8 +1,16 @@
 import Header from "../Header/Header.jsx"
 import Footer from "../Footer/footer.jsx"
-import Home from "../pages/Home.jsx"
-import shop from "../Footer/footer.jsx"
-import MyShop from "../pages/dashboard/dashboard-MyShop.jsx"
+
+
+import Home from "./Home.jsx"
+import Sale from "./sale.jsx"
+
+
+
+// import MyShop from "../pages/dashboard/dashboard-MyShop.jsx"
+
+
+
 import "./css/dashboard.css"
 // import "./css/Home.css"
 
@@ -53,7 +61,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     if (activePage === "shop") {
        let MyShops =(
         <>
-        <MyShop/>
+        <Sale/>
         </>)
       return MyShops
     }
@@ -93,7 +101,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     { name: "Home", icon: "fa-solid fa-home", path: "home" },
     { name: "My Account", icon: "fa-solid fa-user", path: "user" },
     { name: "Your orders", icon: "fa-solid fa-cart-shopping", path: "cart" },
-    { name: "sell", icon: "fa-solid fa-store", path: "sell" },
+    { name: "sell", icon: "fa-solid fa-store", path: "shop" },
     { name: "My Ads ⁽ᶠᵒʳ ᵐᵉᵐᵇᵉʳ⁾", icon: "fa-solid fa-store", path: "shop" },
     // { name: "", icon: "fa-solid fa-store", path: "shop" },
   ];

@@ -110,6 +110,7 @@ ease;
 }
 #ads {
   /*background-color: grey;*/
+  display: none;
   height: 20vh;
   margin: 10px;
   border: 0px solid grey;

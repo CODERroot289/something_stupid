@@ -29,7 +29,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
   }, []);
     console.log(products)
     function cards(x){
-      console.log(x)
+      // console.log(x)
       let appcard =(
         <>
         <div class="app-card">
@@ -44,7 +44,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
             ₹{ x.price}
           </h1>
 
-            <button class="view-button" onClick={console.log(x.id)}>view</button>
+            <button class="view-button" onClick={()=>{console.log(x.id)}}>view</button>
             <button class="view-button">cart</button>
 
           
@@ -62,19 +62,28 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     <div style={{display: "grid"}}>
       <ul id="categories">
         <Link  className="menu-link">
-        <li >electronic</li>
+{/*        <img style={{
+          width:"50px"
+        }}src="../../../public/ele.jpg"/>*/}
+        <br></br>
+        
+        
+        
+        
+        
+        <li > ELECTRONIC</li>
         </Link>
         <Link  className="menu-link">
-        <li >meat</li>
+        <li >MEAT</li>
         </Link>
                 <Link  className="menu-link">
-        <li >fish</li>
+        <li >FISH</li>
         </Link>
                 <Link  className="menu-link">
-        <li >vegetables</li>
+        <li >VEGETABLES</li>
         </Link>
                 <Link  className="menu-link">
-        <li >food</li>
+        <li >FOOD</li>
         </Link>      {/*  <Link  className="menu-link">
         <li >cars</li>
         </Link>

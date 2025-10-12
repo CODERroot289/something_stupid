@@ -92,6 +92,8 @@ ease;
   display: flex;
   background-color: grey;
   list-style: none;
+  height: 4vh;
+  
   overflow: scroll;
   margin: 0;
     justify-content: space-around;;

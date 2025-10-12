@@ -93,8 +93,18 @@ function Header() {
 		<Menu/>
 		<header className='header'>
 			<button className='menu-btn' onClick={showmenu}>☰</button>
-			<h1>
-			<o>I</o><o>d</o><o>K</o><o>N</o><o>o</o><o>M</o><o>e</o></h1>
+			{/*<h1><o>I</o><o>d</o><o>K</o><o>N</o><o>o</o><o>M</o><o>e</o></h1>*/}
+			<div>
+			<div id='logo'style={{
+			display: "flex",
+		    lignContent: "flex-end",
+		    alignItems: "center",
+		    flexWrap: "wrap",
+		    alignContent: "space-around",
+		    justifyContent: "space-around",
+
+			}}></div>
+		</div>
 			<div>
 				<ul>
 

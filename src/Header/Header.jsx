@@ -4,7 +4,7 @@ import { useEffect,useState } from 'react';
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { getAuth, signOut } from "firebase/auth";
-function Header() {
+function Header({ setQuery }) {
 
 	// 	function SearchBarExample() {
 	// 	  const [searchTerm, setSearchTerm] = useState("");
@@ -127,6 +127,8 @@ function Header() {
 				 <input
 				        type="text"
 				        placeholder="Search..."
+				        id="searchbar"
+				        onChange={(e) => setQuery(e.target.value)}
 				        // value={searchTerm}
 				        // onChange={(e) => setSearchTerm(e.target.value)}
 				        style={{

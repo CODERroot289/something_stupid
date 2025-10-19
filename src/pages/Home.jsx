@@ -7,7 +7,7 @@ import "./css/Home.css"
 import { Link } from "react-router-dom";
 
 import { useState ,useEffect} from "react";
-export default function Home() {
+export default function Home({ query }) {
 const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   // console.log(getSystemTheme())
     // let products= {
@@ -19,6 +19,190 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     //   "location":
 
     // }
+
+  // const vbg = document.querySelector(".div");
+
+  // function toggleBlur() {
+  //   vbg.classList.toggle("blur-background");
+  // }
+  const [vopen, setvopen] = useState(false);
+  const [vpopen, setvpopen] = useState(0);
+
+  const ranno =Math.random()
+
+  function popupv() {
+
+
+    let view_div ={}
+    if (vopen == true) {
+      console.log("dlola")
+      let e = document.getElementById("human")
+      e.style.display = "flex"
+      // let ccontainer =document.createElement("style")
+      // ccontainer.style.inner
+      // ccontainer.id = "dynamicStyleElement";
+      // ccontainer.type = "text/css";
+      // ccontainer.innerHTML = "#card-container > div:not(#human) {filter: blur(5px);}"
+      let p = null 
+      products.map((item, index) => {
+        if (item.id == vpopen){
+          console.log(item)
+          p = item
+        }
+
+      })
+
+      document.querySelectorAll("#card-container > div:not(#human)").forEach(div => {
+        div.style.filter = "blur(5px)";
+      });
+
+
+      // toggleBlur()
+      view_div =(
+        <>
+          <div className="modal-card" >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "8px",
+              }}
+            >
+              <h3 id="modalTitle" style={{ margin: 0, color: "#e6f6ff" }}>
+                {p.name}
+              </h3>
+              <button className="ghost" onClick={() =>{
+
+                document.getElementById("human").style.display = "none"
+                setvopen(false)
+
+            }}>
+                Close
+              </button>
+            </div>
+
+            <div className="modal-grid">
+              <div className="thumb-lg">
+                <img
+                  id="modalImg"
+                  src={`https://productdb.up.railway.app/${p.images[0]}`}
+                  alt=""
+                />
+              </div>
+
+              <div id="if">
+                <div
+                  id="modalDesc"
+                  style={{ color: "var(--muted)", marginBottom: "12px" }}
+                >
+                  {p.description}
+                </div>
+
+                <div
+                  id="modalPrice"
+                  style={{
+                    fontSize: "1.2rem",
+                    fontWeight: 800,
+                    color: "var(--accent)",
+                  }}
+                >
+                   ₹{p.price}
+                </div>
+
+                <div
+                  style={{
+                    marginTop: "12px",
+                    display: "flex",
+                    gap: "8px",
+                  }}
+                >
+                  <button className="btn" id="modalBuy">
+                    Buy Now
+                  </button>
+                  <button className="add small" id="modalAdd">
+                    Add to Cart
+                  </button>
+                </div>
+
+                <div style={{ marginTop: "18px" }}>
+                  <h4 style={{ margin: "0 0 8px 0", color: "#e6f6ff" }}>
+                    Details
+                  </h4>
+                  <ul
+                    id="modalSpecs"
+                    style={{ color: "var(--muted)", margin: "0 0 12px 18px" }}
+                  >
+                    <li>Location: {p.location}</li>
+                    <li>Phone no: {p.phone}</li>
+                    <li>Category: {p.category}</li>
+                    {/*<li>Availability: In stock</li>*/}
+                  </ul>
+
+                  <div style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+                    Reviews
+                  </div>
+                  <div id="modalReviews" style={{ marginTop: "8px", color: "var(--muted)" }}>
+                    ★★★★★ • 4.5 (132 reviews)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </>
+      )
+
+
+    }
+    else{
+      view_div = (<></>)
+
+      document.querySelectorAll("#card-container > div:not(#human)").forEach(div => {
+        div.style.filter = "none";
+      });
+
+    }
+  return view_div
+
+
+} 
+
+
+    function genratecards() {
+
+
+      if (query){
+
+      return products
+        .filter(item => item.name.toLowerCase().includes(query.toLowerCase()))
+        .map((item, index) => (
+          <>
+            {cards(item)}
+          </>
+        ))
+      
+
+
+      }else{
+        // if (vpopen ==0){
+
+           return  getRandomItems(products).map((item, index) => (<>
+          {cards(item)}
+
+            </>))
+          // console.log(pl)
+
+          // return pl
+        // }
+        // else{
+        //   console.log(pl)
+        //   return pl
+        // }
+      }
+
+    }
+
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -27,16 +211,16 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
       .then((data) => setProducts(data))
       .catch((err) => console.error(err));
   }, []);
-    console.log(products)
+    // console.log(products)
     function cards(x){
       // console.log(x)
       let appcard =(
         <>
-        <div class="app-card">
+        <div className="app-card">
         <img src={`https://productdb.up.railway.app/${x.images[0]}`} alt="App 1"></img>
-        <div class="app-details" onclick="goappdetails('app3')">
-          <h2 class="app-title">{x.name.toUpperCase()}</h2>
-          <p class="app-description">{x.description.length > 50
+        <div className="app-details" onClick={console.log("dsa")}>
+          <h2 className="app-title">{x.name.toUpperCase()}</h2>
+          <p className="app-description">{x.description.length > 50
     ? x.description.slice(0, 50) + "..."
     : x.description}<br></br>
           </p>
@@ -44,8 +228,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
             ₹{ x.price}
           </h1>
 
-            <button class="view-button" onClick={()=>{console.log(x.id)}}>view</button>
-            <button class="view-button">cart</button>
+            <button className="view-button" onClick={()=>{setvopen(true);setvpopen(x.id)}}>view</button>
+            <button className="view-button" onClick={()=>{console.log(activePage)}}>cart</button>
 
           
         </div>
@@ -55,21 +239,18 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
       return appcard
 
     }
+    function getRandomItems(arr, count = 15) {
+      if (arr.length <= count) return arr; 
+      return arr.sort(() => ranno - 0.5).slice(0, count);
+    }
   return(
     <>
-      {/*<div className="bgi"></div>*/}
-    {/*<Header/>*/}
+    
     <div style={{display: "grid"}}>
       <ul id="categories">
         <Link  className="menu-link">
-{/*        <img style={{
-          width:"50px"
-        }}src="../../../public/ele.jpg"/>*/}
         <br></br>
-        
-        
-        
-        
+            
         
         <li > ELECTRONIC</li>
         </Link>
@@ -86,86 +267,39 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         <li >FOOD</li>
         </Link>      {/*  <Link  className="menu-link">
         <li >cars</li>
-        </Link>
+
 */}
       </ul>
       <div id="ads" ></div>
       <div id="card-container">
-        {products.map((item, index) => (<>
-          {cards(item)}
+        {genratecards()}
+              <div 
+        id="human"
+        style={{
+          height:"100vh",
+          justifyContent: "space-around",
+          alignItems: "center",
+          position: "fixed",
+          display:"none",
+          top:0,
+          bottom:0,
+          left:0,
+          right:0,
+        }}
+      >
+        {popupv()}
+        {()=>{
+          let input = document.getElementById("searchbar");
 
-        </>))}
-{/*      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}
-      {appcard}*/}
+    input.addEventListener("input", () => {
+      console.log("Value changed to:", input.value);
+    });
+        }}
       </div>
-      {/*<Dmenu/>*/}
-      {/*<div id="card-container" style={{height:"100vh"}}>*/}
-        {/*{renderContent()}*/}
-      {/*</div>*/}
-{/*        <h2>Study Materials</h2>
-        <p>Question papers</p>*/}
-{/*
-      <section className="resources">
-          <div className="mcode"  >
-      <span style={{ color: "blue" }}>class</span> Life:
-      {"\n"}    <span style={{ color: "blue" }}>def</span>{" "}
-      <span style={{ fontWeight: "bold" }}>__init__</span>(self):
-      {"\n"}        self.depression ={" "}
-      <span style={{ color: "purple" }}>True</span>
-      {"\n"}        self.motivation ={" "}
-      <span style={{ color: "black" }}>0</span>
-      {"\n"}        self.is_alive ={" "}
-      <span style={{ color: "purple" }}>True</span>
-      {"\n\n"}    <span style={{ color: "blue" }}>def</span>{" "}
-      <span style={{ fontWeight: "bold" }}>run</span>(self):
-      {"\n"}        <span style={{ color: "blue" }}>print</span>(
-      <span style={{ color: "green" }}>"System Booting..."</span>)
-      {"\n"}        <span style={{ color: "blue" }}>if</span>{" "}
-      self.depression:
-      {"\n"}            self.suicide()
-      {"\n"}        <span style={{ color: "blue" }}>else</span>:
-      {"\n"}            <span style={{ color: "blue" }}>print</span>(
-      <span style={{ color: "green" }}>"Survival Mode: ON"</span>)
-      {"\n\n"}    <span style={{ color: "blue" }}>def</span>{" "}
-      <span style={{ fontWeight: "bold" }}>suicide</span>(self):
-      {"\n"}        self.is_alive ={" "}
-      <span style={{ color: "purple" }}>False</span>
-      {"\n"}        <span style={{ color: "blue" }}>print</span>(
-      <span style={{ color: "green" }}>"fatal error: EmotionDamgeOverflowException"</span>)
-      {"\n"}        <span style={{ color: "blue" }}>print</span>(
-      <span style={{ color: "green" }}>"Terminating process: life()"</span>)
-      {"\n"}        <span style={{ color: "blue" }}>print</span>(
-      <span style={{ color: "green" }}>"Suicide() executed."</span>)
-      {"\n"}        <span style={{ color: "blue" }}>print</span>(
-      <span style={{ color: "green" }}>"Goodbye, world."</span>)
-      {"\n\n"}me = Life()
-      {"\n"}me.run()
+    </div>
+    
     </div>
 
-
-
-      </section>*/}
-{/*      
-      <section className="about" style={{height: "40vh"}}>
-        <h2>About US</h2>
-        <ul>
-          
-        <li className="about li">IDKNOTME</li>
-        <li className="about li">IDKABOUTME</li>
-        <li className="about li">IDKABOUTUS</li>
-        </ul>
-      </section>*/}
-    </div>
 
 
     <Footer/>

@@ -17,7 +17,39 @@
     background-repeat: no-repeat;
     z-index: -1
 }*/
+/*#card-container{*/
+/*filter: blur(5px)*/
+/*}*/
+/*
+#card-container > div {
+  transition: filter 0.3s;
+}*/
 
+/* Blur all divs when container has 'blur-background' */
+/*#card-container.blur-background > div {
+  filter: blur(5px);
+}*/
+
+/* Keep the special div sharp */
+/*#card-container.blur-background > .hum {
+  filter: none;
+}
+*/
+.modal-card {
+    /*width: 720px;*/
+    max-width: 80vw;
+    height: 70vh;
+    background-color: #b5b0b0;
+    opacity: 1;
+    color:black;
+    /*background: linear-gradient(180deg, var(--card), #071019);*/
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+/*#card-container > div:not(#human) {
+  filter: blur(5px); 
+}*/
 
 .menu-link {
   display: flex;
@@ -154,4 +186,186 @@ ease;
 .app-card{
     width: 85%;
   }
+}
+
+
+/*modal-card*/
+.modal-card {
+  background: rgba(20, 25, 35, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 24px;
+  color: #e6f6ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Smooth fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Header (Title + Close Button) */
+.modal-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #e6f6ff;
+  letter-spacing: 0.5px;
+}
+
+.modal-card .ghost {
+  background: transparent;
+  border: none;
+  color: #e6f6ff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.modal-card .ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Layout grid for image + details */
+.modal-grid {
+  display: grid;
+  grid-template-columns:1fr 1.5fr;
+  gap: 24px;
+  height: 100%;
+}
+
+/* Image styling */
+.thumb-lg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;           /* Prevents image overflow */
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.thumb-lg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;         /* Keeps the image fully visible inside */
+  border-radius: inherit;
+}
+.thumb-lg img:hover {
+  transform: scale(1.05);
+}
+
+/* Text styling */
+#modalDesc {
+  color: #b8c8d8;
+  margin-bottom: 12px;
+  max-height: 30% ;
+  overflow-x: auto;
+}
+
+#modalPrice {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #00d4ff;
+}
+
+/* Buttons */
+.btn,
+.add {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn {
+  background: #00bcd4;
+  color: #fff;
+}
+
+.btn:hover {
+  background: #00d4ff;
+}
+
+.add {
+  background: #2a2f3f;
+  color: #e6f6ff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.add:hover {
+  background: #3a4054;
+}
+
+/* Small version for secondary buttons */
+.add.small {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+/* Specifications section */
+.modal-card h4 {
+  color: #e6f6ff;
+  margin-bottom: 8px;
+}
+
+#modalSpecs {
+  color: #a9b6c3;
+  margin: 0 0 12px 18px;
+  line-height: 1.4;
+}
+
+#modalReviews {
+  color: #a9b6c3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-card {
+    width: 90vw;
+    height: 80vh;
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .if {
+    overflow-x: auto;
+    height: 30vh;
+  }
+  .thumb-lg {
+    max-height: 30vh;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }

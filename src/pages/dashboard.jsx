@@ -26,7 +26,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
   // console.log(getSystemTheme())
   document.documentElement.setAttribute('data-theme', getSystemTheme());
 
-
+  const [query, setQuery] = useState("");
 
   const [open, setOpen] = useState(true);
   const [activePage, setActivePage] = useState("home");
@@ -71,7 +71,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     if (activePage === "home") {
        let MyShops =(
         <>
-        <Home/>
+        <Home query={query}/>
         </>)
       return MyShops
     }
@@ -114,6 +114,9 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     return <button id="lgout" onClick={handleLogout}>Log Out</button>;
   }
 
+
+
+
   const menuItems = [
     { name: "Home", icon: "fa-solid fa-home", path: "home" },
     { name: "My Account", icon: "fa-solid fa-user", path: "user" },
@@ -128,7 +131,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
   return(
     <>
       <div className="bgi"></div>
-    <Header/>
+    <Header setQuery ={setQuery}/>
 
     <div className="home">
       {/*<section className="projects">*/}

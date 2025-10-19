@@ -94,9 +94,9 @@ function Header({ setQuery }) {
 		<header className='header'>
 			<button className='menu-btn' onClick={showmenu}>☰</button>
 			{/*<h1><o>I</o><o>d</o><o>K</o><o>N</o><o>o</o><o>M</o><o>e</o></h1>*/}
-			<div style={{width:" 18vw"}}>
+
 			<div id='logo'style={{
-			display: "flex",
+
 		    lignContent: "flex-end",
 		    alignItems: "center",
 		    flexWrap: "wrap",
@@ -105,9 +105,9 @@ function Header({ setQuery }) {
 		    width:"10vw"
 
 			}}></div>
-		</div>
-			<div>
-				<ul>
+		{/*</div>*/}
+			
+
 
 {/*					<a href="/"><li>Home</li></a>
 					{user ? (
@@ -133,13 +133,13 @@ function Header({ setQuery }) {
 				        // onChange={(e) => setSearchTerm(e.target.value)}
 				        style={{
 				          padding: "10px",
-				          width: "100%",
+				          width: "800px",
 				          borderRadius: "8px",
 				          border: "1px solid #ccc",
 				          // marginBottom: "20px",
 				        }}
 				      />
-				</ul>
+
 				<div className='slin'>
 				{user ? (LogoutButton()):(
 					<>
@@ -153,7 +153,7 @@ function Header({ setQuery }) {
 			    )}
 				</div>
 			  
-			</div>
+
 			{/*<hr></hr>*/}
 			
 

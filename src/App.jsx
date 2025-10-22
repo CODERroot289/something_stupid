@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Register from './pages/register';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
+import Sucide from './pages/sui';
 // import About from './pages/About';
 // import Projects from './pages/Projects';
 import "./App.css"
@@ -15,6 +16,7 @@ return (
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Dashboard />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/sucide" element={<Sucide />} />
       </Routes>
     
   );

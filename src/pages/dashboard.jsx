@@ -128,6 +128,12 @@ useEffect(() => {
         <h1>User</h1>
       </>)
       return User
+    }     if (activePage === "Services"){
+      let User =(
+      <>
+        <h1>Services</h1>
+      </>)
+      return User
     } 
   };
     function LogoutButton() {
@@ -153,7 +159,7 @@ useEffect(() => {
     { name: "Home", icon: "fa-solid fa-home", path: "home" },
     { name: "My Account", icon: "fa-solid fa-user", path: "user" },
     { name: "Cart", icon: "fa-solid fa-cart-shopping", path: "cart" },
-    { name: "sell", icon: "fa-solid fa-store", path: "shop" },
+    { name: "My Services", icon: "fa-solid fa-store", path: "Services" },
     { name: "My Ads ⁽ᶠᵒʳ ᵐᵉᵐᵇᵉʳ⁾", icon: "fa-solid fa-store", path: "shop" },
     // { name: "", icon: "fa-solid fa-store", path: "shop" },
   ];
@@ -188,6 +194,7 @@ useEffect(() => {
             </li>
           ))}
         {LogoutButton()}
+        
         </ul>
       </div>
 

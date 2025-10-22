@@ -141,6 +141,7 @@ function Header({ setQuery }) {
 				      />
 
 				<div className='slin'>
+			    <button >Services</button>
 				{user ? (LogoutButton()):(
 					<>
 					<a href='/register'className='sline'>

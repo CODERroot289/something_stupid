@@ -1,54 +1,133 @@
-import Header from "../Header/Header.jsx"
-import Footer from "../Footer/footer.jsx"
-// import Dmenu from "../Menu/Dmenu.jsx"
-import "./css/Home.css"
-// import MyShop from "../pages/dashboard/dashboard-MyShop.jsx"
-import { doc, setDoc,updateDoc, arrayUnion } from "firebase/firestore";
-import { db } from "../firebase";
-import { Link } from "react-router-dom";
+import React, { useState,useEffect } from "react";
+// import Sale from "./sale.jsx"
+// import { collection, addDoc } from "firebase/firestore";
+// import { db } from "../firebase";
 
-import { useState ,useEffect} from "react";
-export default function Home({ query,rec,user }) {
-const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  // console.log(getSystemTheme())
-    // let products= {
-    //   "Name":,
-    //   "Image":,
-    //   "Desc":,
-    //   "categories":,
-    //   "Price":,
-    //   "location":
+export default function Cart({user,userData}) {
 
-    // }
 
-  // const vbg = document.querySelector(".div");
 
-  // function toggleBlur() {
-  //   vbg.classList.toggle("blur-background");
-  // }
   const [vopen, setvopen] = useState(false);
   const [vpopen, setvpopen] = useState(0);
 
-  const ranno =rec
 
 
-  async function addProduct(userId, product) {
-      const userRef = doc(db, "users", userId);
-      try {
-         await setDoc(
-          userRef,
-          {
-            cart: arrayUnion(product), // optional initial field if not created yet
-          },
-          { merge: true } // this creates the doc if it doesn’t exist
-        );
-        alert("✅ Product added!");
 
-      } catch (err) {
-        console.log("❌ Error adding product:", err);
-        alert("❌ Error adding product:", err);
-      }
+
+
+
+  const [product, setProduct] = useState({
+    name: "",
+    price: "",
+    description: "",
+    imageUrl: "",
+  });
+
+  const handleChange = (e) => {
+    setProduct({ ...product, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!product.name || !product.price) {
+      alert("Please enter product name and price");
+      return;
     }
+
+    // try {
+    //   await addDoc(collection(db, "products"), {
+    //     ...product,
+    //     price: Number(product.price),
+    //     createdAt: new Date(),
+    //   });
+    //   alert("✅ Product added successfully!");
+    //   setProduct({ name: "", price: "", description: "", imageUrl: "" });
+    // } catch (err) {
+    //   console.error("Error adding product:", err);
+    //   alert("❌ Failed to add product");
+    // }
+
+    alert("✅ Product added (demo)");
+    setProduct({ name: "", price: "", description: "", imageUrl: "" });
+    setShowForm(false);
+  };
+
+  const styles = {
+
+    container: {
+      display: "flex",
+      justifyContent: "space-around",
+      flexWrap: "wrap",
+    },
+    // cardContainer: {
+    //   width: "90%",
+    //   height: "85%",
+    //   background: "white",
+    //   borderRadius: "20px",
+    //   boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
+    //   alignItems: "center",
+    //   fontSize: "1.5rem",
+    //   fontWeight: "600",
+    //   display: "flex",
+    //   justifyContent: "space-around",
+    //   flexWrap: "wrap",
+    //   overflowY: "auto",
+    // },
+    
+    
+  };
+
+
+
+  console.log(userData)
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://productdb.up.railway.app/products") // server endpoint
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+
+
+
+
+ function genratecards() {
+
+
+      let l= products
+        .filter(item => userData?.cart?.includes(item.id) )
+        .map((item, index) => (
+          <>
+            {cards(item)}
+          </>
+        ))
+      if (l.length>0){
+        return l
+      }
+      else{
+
+      return <>🛍️ Your Products Area</>
+      }
+
+
+      // }else{
+
+
+      //      let pl = getRandomItems(products)
+      //     console.log(pl)
+      //     return pl.map((item, index) => (<>
+      //     {cards(item)}
+
+      //       </>))
+      // }
+
+    }
+
+
+
   function popupv() {
 
 
@@ -190,57 +269,13 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 } 
 
 
-    function genratecards() {
-
-
-      if (query){
-
-      return products
-        .filter(item => item.name.toLowerCase().includes(query.toLowerCase()))
-        .map((item, index) => (
-          <>
-            {cards(item)}
-          </>
-        ))
-      
-
-
-      }else{
-        // if (vpopen ==0){
-
-           let pl = getRandomItems(products)
-          console.log(pl)
-          return pl.map((item, index) => (<>
-          {cards(item)}
-
-            </>))
-
-        // }
-        // else{
-        //   console.log(pl)
-        //   return pl
-        // }
-      }
-
-    }
-
-
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://productdb.up.railway.app/products") // server endpoint
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.error(err));
-  }, []);
-    // console.log(products)
-    function cards(x){
+function cards(x){
       // console.log(x)
       let appcard =(
         <>
         <div className="app-card">
         <img src={`https://productdb.up.railway.app/${x.images[0]}`} alt="App 1"></img>
-        <div className="app-details">
+        <div className="app-details" onClick={console.log("dsa")}>
           <h2 className="app-title">{x.name.toUpperCase()}</h2>
           <p className="app-description">{x.description.length > 50
     ? x.description.slice(0, 50) + "..."
@@ -254,7 +289,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
           </h1>
 
             <button className="view-button" onClick={()=>{setvopen(true);setvpopen(x.id)}}>view</button>
-            <button className="view-button" onClick={()=>{addProduct(user.uid,x.id)}}>cart</button>
+            <button className="view-button" onClick={()=>{console.log(x.id)
+            }}>Delete</button>
 
           
         </div>
@@ -264,46 +300,23 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
       return appcard
 
     }
-    function getRandomItems(arr, count = 15) {
-      const copy = arr.slice();
-      for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(ranno * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-      }
-      return copy.slice(0, count);
-    }
 
-  return(
-    <>
-    
-    <div style={{display: "grid"}}>
-      <ul id="categories">
-        <Link  className="menu-link">
-        <br></br>
-            
-        
-        <li > ELECTRONIC</li>
-        </Link>
-        <Link  className="menu-link">
-        <li >MEAT</li>
-        </Link>
-                <Link  className="menu-link">
-        <li >FISH</li>
-        </Link>
-                <Link  className="menu-link">
-        <li >VEGETABLES</li>
-        </Link>
-                <Link  className="menu-link">
-        <li >FOOD</li>
-        </Link>      {/*  <Link  className="menu-link">
-        <li >cars</li>
 
-*/}
-      </ul>
-      <div id="ads" ></div>
-      <div id="card-container">
+
+
+  return (
+    <div style={styles.container}>
+      {/* Main Card Container */}
+
         {genratecards()}
-              <div 
+
+
+      {/* Floating + Button */}
+
+
+
+
+        <div 
         id="human"
         style={{
           height:"95vh",
@@ -317,23 +330,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
           right:0,
         }}
       >
-        {popupv()}
-        {()=>{
-          let input = document.getElementById("searchbar");
-
-    input.addEventListener("input", () => {
-      console.log("Value changed to:", input.value);
-    });
-        }}
-      </div>
+      {popupv()}
     </div>
-    
     </div>
-
-
-
-    <Footer/>
-    </>
-    )
-
+  );
 }

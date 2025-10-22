@@ -36,7 +36,7 @@ function Header({ setQuery }) {
 	    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 		    if (currentUser) {
 		    	setUser(currentUser); // User is logged in
-		    	console.log(currentUser)
+		    	// console.log(currentUser)
 	    		let log_sign =document.getElementsByClassName("sline")
 	    		for(let x of log_sign){
 	    			x.style.display ="none"

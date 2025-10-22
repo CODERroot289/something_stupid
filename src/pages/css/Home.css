@@ -347,9 +347,10 @@ ease;
     grid-template-columns: 1fr;
   }
 
-  .if {
-    overflow-x: auto;
-    height: 30vh;
+  #if {
+    overflow-x: overlay;
+
+    height: 37vh;
   }
   .thumb-lg {
     max-height: 30vh;

@@ -5,7 +5,8 @@ import { useState } from "react";
 import { auth, googleProvider } from "../firebase";
 import { signInWithPopup,createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
-
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -18,7 +19,18 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Google sign up
+  // Google sign upcreateUserData
+  async function createUserData(userId) {
+  try {
+    await setDoc(doc(db, "users", userId), {
+      cart: [],
+      myproducts: [],
+    });
+    console.log("✅ User data created in Firebase!");
+  } catch (err) {
+    console.error("❌ Error creating user data:", err);
+  }
+}
   const handleGoogleSignup = async () => {
     try {
       setLoading(true);
@@ -44,7 +56,10 @@ export default function Register() {
 
     try {
       setLoading(true);
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      // console.log("User ID (uid):", user.uid);
+      await createUserData(user.uid)
       alert("Account created successfully!");
       // window.location.href = "/dashboard"
       navigate("/dashboard")

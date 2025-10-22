@@ -10,6 +10,8 @@
 
 
 }
+
+
 .sdfller {
     width: 82vw;
     height: 84vh;
@@ -18,4 +20,138 @@
     display: flex;
     color :white
 ;
+}
+/* Sale.css */
+
+/* Overlay background     overflow-x: hidden;
+    flex: 1 1 0%;
+    max-height: 44%;
+    overflow-y: auto;*/
+.sale-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Main form container */
+.sale-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 80vh;
+  width: 80vw;
+  justify-content: center;
+  background: #1e1e1e;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 900px;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  gap: 20px;
+  position: relative;
+}
+
+/* Close button */
+.sale-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Upload box */
+.sale-upload-box {
+  width: 320px;
+  height: 260px;
+  border: 2px dashed #666;
+  border-radius: 10px;
+  background: #2c2c2c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.sale-upload-box.drag-active {
+  border: 2px dashed #00bfa6;
+  background: #2e2e2e;
+}
+
+.sale-upload-box img {
+  height: 100%;
+  width: auto;
+  border-radius: 8px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+/* Product details */
+.sale-details {
+  flex: 1;
+  max-height: 100%;
+  min-width: 250px;
+  overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sale-details h2 {
+  margin-bottom: 10px;
+}
+
+.sale-details label {
+  display: block;
+  margin-top: 8px;
+}
+
+.sale-input {
+  width: 95%;
+  padding: 8px;
+  margin: 8px 0 15px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #2c2c2c;
+  color: white;
+}
+
+.sale-input-textarea {
+  resize: none;
+}
+
+/* Submit button */
+.sale-submit-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #00bfa6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+.sale-details{
+
+        overflow-x: hidden;
+    flex: 1 1 0%;
+    max-height: 44%;
+    overflow-y: auto;
+}
 }

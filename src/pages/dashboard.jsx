@@ -198,7 +198,6 @@ useEffect(() => {
         </ul>
       </div>
 
-      
       <div className="main-content">
         {renderContent()}
       </div>

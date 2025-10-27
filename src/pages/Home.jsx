@@ -28,8 +28,11 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
   //   vbg.classList.toggle("blur-background");
   // }
   const [vopen, setvopen] = useState(false);
-  const [catopen, setcatopen] = useState(false);
   const [vpopen, setvpopen] = useState(0);
+  const [dog, setdog] = useState(false);
+  const [dogpo, setdogpo] = useState(0);
+
+
 
   const ranno =rec
 
@@ -66,126 +69,81 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 
 
     let view_div ={}
-    if (vopen == true) {
-      console.log("dlola")
-      let e = document.getElementById("human")
+    if (dog == true) {
+       let e = document.getElementById("human")
       e.style.display = "flex"
-      // let ccontainer =document.createElement("style")
-      // ccontainer.style.inner
-      // ccontainer.id = "dynamicStyleElement";
-      // ccontainer.type = "text/css";
-      // ccontainer.innerHTML = "#card-container > div:not(#human) {filter: blur(5px);}"
-      let p = null 
-      products.map((item, index) => {
-        if (item.id == vpopen){
-          console.log(item)
-          p = item
-        }
-
-      })
-
       document.querySelectorAll("#card-container > div:not(#human)").forEach(div => {
         div.style.filter = "blur(5px)";
       });
-
-
+      // console.log("dsa")
       // toggleBlur()
-      view_div =(
-        <>
-          <div className="modal-card" >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginBottom: "8px",
-              }}
-            >
-              <h3 id="modalTitle" style={{ margin: 0, color: "#e6f6ff" }}>
-                {p.name}
-              </h3>
-              <button className="ghost" onClick={() =>{
+      view_div = (
+  <>
+    <div className="modal-card">
+      <button
+        className="ghost"
+        onClick={() => {
+          document.getElementById("human").style.display = "none";
+          setdog(false);
+        }}
+      >
+        Close
+      </button>
 
-                document.getElementById("human").style.display = "none"
-                setvopen(false)
 
-            }}>
-                Close
-              </button>
-            </div>
 
-            <div className="modal-grid">
-              <div className="thumb-lg">
-                <img
-                  id="modalImg"
-                  src={`https://productdb.up.railway.app/${p.images[0]}`}
-                  alt=""
-                />
-              </div>
 
-              <div id="if">
-                <div
-                  id="modalDesc"
-                  style={{ color: "var(--muted)", marginBottom: "12px" }}
-                >
-                  {p.description}
-                </div>
+      {/* ✅ Proper product list */}
+      <div style={{
+        overflowX:"none",
+        overflowY:"auto",
+    display: "inline-flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around",
 
-                <div
-                  id="modalPrice"
-                  style={{
-                    fontSize: "1.2rem",
-                    fontWeight: 800,
-                    color: "var(--accent)",
-                  }}
-                >
-                    ₹{new Intl.NumberFormat("en-IN", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(p.price)}
-                </div>
 
-                <div
-                  style={{
-                    marginTop: "12px",
-                    display: "flex",
-                    gap: "8px",
-                  }}
-                >
-                  <button className="btn" id="modalBuy">
-                    Buy Now
-                  </button>
-                  <button className="add small" id="modalAdd">
-                    Add to Cart
-                  </button>
-                </div>
-
-                <div style={{ marginTop: "18px" }}>
-                  <h4 style={{ margin: "0 0 8px 0", color: "#e6f6ff" }}>
-                    Details
-                  </h4>
-                  <ul
-                    id="modalSpecs"
-                    style={{ color: "var(--muted)", margin: "0 0 12px 18px" }}
-                  >
-                    <li>Location: {p.location}</li>
-                    <li>Phone no: {p.phone}</li>
-                    <li>Category: {p.category}</li>
-                    {/*<li>Availability: In stock</li>*/}
-                  </ul>
-
-                  <div style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-                    Reviews
-                  </div>
-                  <div id="modalReviews" style={{ marginTop: "8px", color: "var(--muted)" }}>
-                    ★★★★★ • 4.5 (132 reviews)
-                  </div>
-                </div>
-              </div>
-            </div>
+      }} className="village-products">
+        {[
+          {
+            name: "Clay Water Pot",
+            image:
+              "https://www.swadeshiblessings.in/cdn/shop/files/Screenshot_2025-03-04_at_10.40.28.png?v=1741065094",
+          },
+          {
+            name: "Jaggery (Gur)",
+            image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZY4wiVcYd7_0y9Fdq52FjW1W8kqJig6omWQ&s",
+          },
+          {
+            name: "Handmade Basket",
+            image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRMntO5FAogYJs8n1K_q9BwDBqbt2OkhNMLw&s",
+          },
+          {
+            name: "Earthen Lamp (Diya)",
+            image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShCnXG6fJ9Xd0_9evnFxE4ModZVWHDUVj5cg&s",
+          },
+          {
+            name: "Millet Flour (Ragi)",
+            image:
+              "https://5.imimg.com/data5/SELLER/Default/2022/3/SC/ER/IX/77529562/ragi-finger-millet-flour-500x500.jpg",
+          },
+        ].map((item, index) => (
+          <div className="village-item" key={index}>
+            <img src={item.image} style={{
+                  marginBottom: "20px",
+              width:"20vw"
+            }} alt={item.name} />
+            <h3 style={{
+                  marginBottom: "20px"}}>{item.name}</h3>
           </div>
-          </>
-      )
+        ))}
+      </div>
+    </div>
+  </>
+);
 
 
     }
@@ -516,11 +474,11 @@ const shopNames = [
         <Link  className="menu-link">
         <li >MEAT</li>
         </Link>
-                <Link  onClick={()=>{setvopen(true);setvpopen(x.id)}} className="menu-link">
-        <li >NEARBY BESTSELLERS</li>
+                <Link   className="menu-link">
+        <li onClick={()=>{setdog(true);setdogpo(1)}}>NEARBY BESTSELLERS</li>
         </Link>
                 <a  className="menu-link">
-        <li >INDIA'S TOP TRENDS</li>
+        <li onClick={()=>{setdog(true);setdogpo(2)}}>INDIA'S TOP TRENDS</li>
         </a>
 {/*                <Link  className="menu-link">
         <li >FOOD</li>
@@ -548,6 +506,7 @@ const shopNames = [
         }}
       >
         {popupv()}
+        {catmenu()}
         {()=>{
           let input = document.getElementById("searchbar");
 

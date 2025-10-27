@@ -28,7 +28,7 @@ function Header({ setQuery }) {
 	      });
 	  };
 
-	  return <button onClick={handleLogout}>Log Out</button>;
+	  return <button id="lgo" onClick={handleLogout}>Log Out</button>;
 	}
 	const [user, setUser] = useState(null);
 	let mencon = false

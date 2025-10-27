@@ -184,7 +184,7 @@ useEffect(() => {
             <FaBars />
           </button>
         </div>
-        <ul className="menu">
+        <ul id="luker" className="menu">
           {menuItems.map((item, index) => (
             <li onClick={() => setActivePage(item.path)}  key={index}>
               <Link  className="menu-link">

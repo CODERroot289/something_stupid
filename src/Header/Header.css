@@ -17,6 +17,7 @@
 }
 .slin{
 	width: auto;
+
 }
 /*}
 .header ul{
@@ -119,6 +120,10 @@
 	.header div{
 		display: flex;
 	 width: auto;
+	}
+	#lgo{
+		display: none;
+
 	}
 
   .header  {

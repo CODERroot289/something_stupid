@@ -1,0 +1,73 @@
+body {
+  background: #121212;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+./*app-card {
+  background: #1e1e1e;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.app-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.app-details {
+  padding: 15px;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #9be8ff;
+}
+
+.app-description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+h1 {
+  font-size: 1.3rem;
+  color: #00ff9d;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.view-button {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.view-button:hover {
+  background: #555;
+}
+*/

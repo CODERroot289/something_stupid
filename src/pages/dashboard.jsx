@@ -6,6 +6,7 @@ import Home from "./Home.jsx"
 import Sale from "./sale.jsx"
 import Cart from "./cart.jsx"
 import MyShop from "./Myshop.jsx"
+import Service from "./services.jsx"
 
 
 
@@ -131,8 +132,9 @@ useEffect(() => {
     }     if (activePage === "Services"){
       let User =(
       <>
-        <h1>Services</h1>
-      </>)
+      <Service/>
+      </>
+      )
       return User
     } 
   };

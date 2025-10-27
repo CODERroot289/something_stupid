@@ -6,6 +6,7 @@ import "./css/Home.css"
 import { doc, setDoc,updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
+import React from "react";
 
 import { useState ,useEffect} from "react";
 export default function Home({ query,rec,user }) {
@@ -27,6 +28,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
   //   vbg.classList.toggle("blur-background");
   // }
   const [vopen, setvopen] = useState(false);
+  const [catopen, setcatopen] = useState(false);
   const [vpopen, setvpopen] = useState(0);
 
   const ranno =rec
@@ -49,6 +51,166 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         alert("❌ Error adding product:", err);
       }
     }
+
+
+
+
+
+
+
+
+
+
+
+ function catmenu() {
+
+
+    let view_div ={}
+    if (vopen == true) {
+      console.log("dlola")
+      let e = document.getElementById("human")
+      e.style.display = "flex"
+      // let ccontainer =document.createElement("style")
+      // ccontainer.style.inner
+      // ccontainer.id = "dynamicStyleElement";
+      // ccontainer.type = "text/css";
+      // ccontainer.innerHTML = "#card-container > div:not(#human) {filter: blur(5px);}"
+      let p = null 
+      products.map((item, index) => {
+        if (item.id == vpopen){
+          console.log(item)
+          p = item
+        }
+
+      })
+
+      document.querySelectorAll("#card-container > div:not(#human)").forEach(div => {
+        div.style.filter = "blur(5px)";
+      });
+
+
+      // toggleBlur()
+      view_div =(
+        <>
+          <div className="modal-card" >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "8px",
+              }}
+            >
+              <h3 id="modalTitle" style={{ margin: 0, color: "#e6f6ff" }}>
+                {p.name}
+              </h3>
+              <button className="ghost" onClick={() =>{
+
+                document.getElementById("human").style.display = "none"
+                setvopen(false)
+
+            }}>
+                Close
+              </button>
+            </div>
+
+            <div className="modal-grid">
+              <div className="thumb-lg">
+                <img
+                  id="modalImg"
+                  src={`https://productdb.up.railway.app/${p.images[0]}`}
+                  alt=""
+                />
+              </div>
+
+              <div id="if">
+                <div
+                  id="modalDesc"
+                  style={{ color: "var(--muted)", marginBottom: "12px" }}
+                >
+                  {p.description}
+                </div>
+
+                <div
+                  id="modalPrice"
+                  style={{
+                    fontSize: "1.2rem",
+                    fontWeight: 800,
+                    color: "var(--accent)",
+                  }}
+                >
+                    ₹{new Intl.NumberFormat("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(p.price)}
+                </div>
+
+                <div
+                  style={{
+                    marginTop: "12px",
+                    display: "flex",
+                    gap: "8px",
+                  }}
+                >
+                  <button className="btn" id="modalBuy">
+                    Buy Now
+                  </button>
+                  <button className="add small" id="modalAdd">
+                    Add to Cart
+                  </button>
+                </div>
+
+                <div style={{ marginTop: "18px" }}>
+                  <h4 style={{ margin: "0 0 8px 0", color: "#e6f6ff" }}>
+                    Details
+                  </h4>
+                  <ul
+                    id="modalSpecs"
+                    style={{ color: "var(--muted)", margin: "0 0 12px 18px" }}
+                  >
+                    <li>Location: {p.location}</li>
+                    <li>Phone no: {p.phone}</li>
+                    <li>Category: {p.category}</li>
+                    {/*<li>Availability: In stock</li>*/}
+                  </ul>
+
+                  <div style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+                    Reviews
+                  </div>
+                  <div id="modalReviews" style={{ marginTop: "8px", color: "var(--muted)" }}>
+                    ★★★★★ • 4.5 (132 reviews)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </>
+      )
+
+
+    }
+    else{
+      view_div = (<></>)
+
+      document.querySelectorAll("#card-container > div:not(#human)").forEach(div => {
+        div.style.filter = "none";
+      });
+
+    }
+  return view_div
+
+
+} 
+
+
+
+
+
+
+
+
+
+
   function popupv() {
 
 
@@ -195,13 +357,47 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
 
       if (query){
 
-      return products
-        .filter(item => item.name.toLowerCase().includes(query.toLowerCase()))
-        .map((item, index) => (
-          <>
-            {cards(item)}
-          </>
-        ))
+    // Before return, define a starting random number:
+    const startNumber = Math.floor(Math.random() * (1000 - 250 + 1)) + 250;
+const shopNames = [
+  "FreshMart",
+  "QuickFix Hardware",
+  "Urban Threads",
+  "TechZone",
+  "Nature’s Basket",
+  "Daily Needs Store",
+  "SmartElectro",
+  "HomeStyle Furnishings",
+  "Pet Paradise",
+  "The Gadget Hub",
+  "Bake & Brew",
+  "The Book Haven",
+  "Sparkle Cleaners",
+  "Farm2Table Organics",
+  "MegaMart",
+  "Style Street",
+  "Bright Tools",
+  "Cool Corner",
+  "Handy Hub",
+  "Royal Cuts"
+];
+
+
+
+    return products
+      .filter(item => item.name.toLowerCase().includes(query.toLowerCase()))
+      .map((item, index) => {
+        // increase number for each element
+
+        const rnumber = startNumber +  Math.floor(Math.random() * (index*50 - 100 + index)) + 100;
+        return (
+          <React.Fragment key={index}>
+            {searchcards(item, rnumber,shopNames[Math.floor(Math.random() * shopNames.length)])}
+          </React.Fragment>
+        );
+      });
+
+
       
 
 
@@ -264,6 +460,39 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
       return appcard
 
     }
+    function searchcards(x,n,kada){
+      // console.log(x)
+
+      let appcard =(
+        <>
+        <div className="app-card">
+        <img src={`https://productdb.up.railway.app/${x.images[0]}`} alt="App 1"></img>
+        <div className="app-details">
+          <h2 className="app-title">{x.name.toUpperCase()}</h2>
+          <p style={{color:"green",fontSize:".8rem",whiteSpace:"pre"}}>Within :{n}m   </p>
+          <p style={{color:"blue",fontSize:".8rem",whiteSpace:"pre"}}>Shop: {kada}</p>
+          <p className="app-description">{x.description.length > 50
+    ? x.description.slice(0, 50) + "..."
+    : x.description}<br></br>
+          </p>
+          <h1>
+            ₹{new Intl.NumberFormat("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(x.price)}
+          </h1>
+
+            <button className="view-button" onClick={()=>{setvopen(true);setvpopen(x.id)}}>view</button>
+            <button className="view-button" onClick={()=>{addProduct(user.uid,x.id)}}>cart</button>
+
+          
+        </div>
+      </div>
+      </>
+      )
+      return appcard
+
+    }
     function getRandomItems(arr, count = 15) {
       const copy = arr.slice();
       for (let i = copy.length - 1; i > 0; i--) {
@@ -287,15 +516,16 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         <Link  className="menu-link">
         <li >MEAT</li>
         </Link>
-                <Link  className="menu-link">
-        <li >FISH</li>
+                <Link  onClick={()=>{setvopen(true);setvpopen(x.id)}} className="menu-link">
+        <li >NEARBY BESTSELLERS</li>
         </Link>
-                <Link  className="menu-link">
-        <li >VEGETABLES</li>
-        </Link>
-                <Link  className="menu-link">
+                <a  className="menu-link">
+        <li >INDIA'S TOP TRENDS</li>
+        </a>
+{/*                <Link  className="menu-link">
         <li >FOOD</li>
-        </Link>      {/*  <Link  className="menu-link">
+        </Link>*/}      
+        {/*  <Link  className="menu-link">
         <li >cars</li>
 
 */}

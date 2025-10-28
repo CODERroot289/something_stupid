@@ -77,6 +77,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
       });
       // console.log("dsa")
       // toggleBlur()
+      if (dogpo==1){
+
       view_div = (
   <>
     <div className="modal-card">
@@ -99,6 +101,7 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
         overflowY:"auto",
     display: "inline-flex",
     flexDirection: "column",
+    width:"25vw",
     alignItems: "center",
     justifyContent: "space-around",
 
@@ -144,6 +147,110 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
     </div>
   </>
 );
+
+      }
+
+    else if (dogpo==2){
+      const shopNames = [
+  "FreshMart",
+  "QuickFix Hardware",
+  "Urban Threads",
+  "TechZone",
+  "Nature’s Basket",
+  "Daily Needs Store",
+  "SmartElectro",
+  "HomeStyle Furnishings",
+  "Pet Paradise",
+  "The Gadget Hub",
+  "Bake & Brew",
+  "The Book Haven",
+  "Sparkle Cleaners",
+  "Farm2Table Organics",
+  "MegaMart",
+  "Style Street",
+  "Bright Tools",
+  "Cool Corner",
+  "Handy Hub",
+  "Royal Cuts"
+];
+
+
+      view_div = (
+  <>
+    <div className="modal-card">
+      <button
+        className="ghost"
+        onClick={() => {
+          document.getElementById("human").style.display = "none";
+          setdog(false);
+        }}
+      >
+        Close
+      </button>
+
+
+
+
+      {/* ✅ Proper product list */}
+      <div style={{
+        overflowX:"none",
+        overflowY:"auto",
+    display: "inline-flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around",
+     width:"25vw",
+
+      }} className="village-products">
+        {[
+          {
+            name: "bamboo plate".toUpperCase(),
+            image:
+              "https://mahatribes.com/storage/app/public/images/products/product-62551b644cb48.JPG",
+          },
+          {
+            name: "pani puri",
+            image:
+              "https://i0.wp.com/amateurprochef.com/wp-content/uploads/2025/05/thumbnail-1.png?resize=800%2C530&ssl=1",
+          },
+          {
+            name: "Wooden utensil",
+            image:
+              "https://brownliving.in/cdn/shop/products/bamboo-cutlery-eco-friendly-travel-cutlery-handcrafted-cutlery-spoon-fork-knife-bamboo-straw-tbb-5-cutlery-kit-827909.jpg?v=1682960434",
+          },
+          {
+            name: "Earthen Lamp (Diya)",
+            image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShCnXG6fJ9Xd0_9evnFxE4ModZVWHDUVj5cg&s",
+          },
+          {
+            name: "Millet Flour (Ragi)",
+            image:
+              "https://5.imimg.com/data5/SELLER/Default/2022/3/SC/ER/IX/77529562/ragi-finger-millet-flour-500x500.jpg",
+          },
+        ].map((item, index) => (
+          <div className="village-item" key={index}>
+            <img src={item.image} style={{
+                  // marginBottom: "1",
+              width:"20vw"
+            }} alt={item.name} />
+            <h3 >{item.name}</h3>
+            <p style={{color:"blue",fontSize:".8rem",whiteSpace:"pre"}}>Shop:{shopNames[Math.floor(Math.random() * shopNames.length)]}</p>
+            <button style={{background:"red",color:"white",border:"1px solid red"}}>Contact</button>
+
+            <hr  style={{
+              marginBottom: "20px",
+              width:"20vw" ,
+              background:"white"
+            }}></hr>
+          </div>
+        ))}
+      </div>
+    </div>
+  </>
+);
+
+    }
 
 
     }
@@ -231,6 +338,8 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
               </div>
 
               <div id="if">
+                <div id="mango">
+                </div>
                 <div
                   id="modalDesc"
                   style={{ color: "var(--muted)", marginBottom: "12px" }}
@@ -280,13 +389,13 @@ const getSystemTheme = () =>  window.matchMedia('(prefers-color-scheme: dark)').
                     <li>Category: {p.category}</li>
                     {/*<li>Availability: In stock</li>*/}
                   </ul>
-
+{/*
                   <div style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
                     Reviews
                   </div>
                   <div id="modalReviews" style={{ marginTop: "8px", color: "var(--muted)" }}>
                     ★★★★★ • 4.5 (132 reviews)
-                  </div>
+                  </div>*/}
                 </div>
               </div>
             </div>

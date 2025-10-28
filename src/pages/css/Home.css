@@ -5,6 +5,20 @@
   padding: 16px;
   white-space: pre;
 }
+#mango{
+  /*background-color: grey;*/
+  /*display: none;*/
+  height: 20vh;
+  margin: 10px;
+  border: 0px solid grey;
+  border-radius: 15px;
+  background-image: url("../../../public/iphoneAD.jpeg");
+  background-size: contain;
+  /*background: no-repeat;*/
+
+  animation:  ads 12s infinite alternate ;
+}
+
         /*background-image: url(/hhomes1.png);*/
 /*.bgi {
   position: fixed;

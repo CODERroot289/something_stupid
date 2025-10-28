@@ -105,6 +105,10 @@ function Header({ setQuery }) {
 		    width:"10vw"
 
 			}}></div>
+			<p style={{fontSize:".8rem",whiteSpace:"pre"}}>
+				mundamveli kochi
+				<p>pin:682507</p>
+			</p>
 		{/*</div>*/}
 			
 
